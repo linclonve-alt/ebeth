@@ -2111,7 +2111,7 @@ function findHTML(){
   const res=srch.loading?'<p class="mute">Searching...</p>':srch.msg?`<p class="mute">${esc(srch.msg)}</p>`:
     srch.res.map(r=>`<div class="row"><span class="frn"><span class="mini-pet">${petSVG(r.friend,r.worn)}</span><b>${clean(r.name)}</b></span><span class="frb"><button type="button" data-act="view" data-uid="${esc(r.uid)}" data-name="${esc(r.name)}">Profile</button>${stBtn(r.uid,r.name)}</span></div>`).join("");
   return `<div class="soc-top"><button type="button" data-act="openlb">Leaderboard</button><button type="button" data-act="view" data-uid="${esc(user.uid)}" data-name="You">My profile</button></div>
-  <div><h3>Find friends</h3><p class="mute" style="margin:0 0 8px">Your friend code: <b class="code">${esc(myCode())}</b> <button type="button" data-act="copycode">Copy</button></p>
+  <div><h3>Find friends</h3><p class="mute" style="margin:0 0 8px">Your code: <b class="code">${esc(myCode())}</b> <button type="button" data-act="copycode">Copy</button></p>
   <form id="srchForm" class="soc-top" autocomplete="off" style="flex-wrap:nowrap"><input id="srchIn" maxlength="40" value="${esc(srch.q)}" placeholder="Name or friend code" aria-label="Search by name or friend code"><button class="primary" type="submit">Search</button></form>${res}</div>`}
 async function doSearch(raw){
   const q=String(raw||"").trim().slice(0,40);srch.q=q;
